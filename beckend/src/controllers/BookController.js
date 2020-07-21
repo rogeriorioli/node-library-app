@@ -8,7 +8,7 @@ module.exports = {
         return res.json(book);
     },
     async show(req, res) {
-        const book = await Library.findById(req.params.id);
+        const book = await Library.findById(req.params._id);
         return res.json(book);
     },
 
@@ -44,15 +44,13 @@ module.exports = {
         });
     },
     async update(req, res) {
-        const book = await Library.findByIdAndUpdate(req.params.id, req.body, {
-            new: true
-        });
+        const book = await Library.findByIdAndUpdate(req.params._id, req.body);
         return res.json([{
             "message": "book editado com sucesso"
         }, book]);
     },
     async destroy(req, res) {
-        const book = await Library.findByIdAndDelete(req.params.id);
+        const book = await Library.findByIdAndDelete(req.params._id);
 
         return res.json({ "message": 'deletado com sucesso' });
     }
