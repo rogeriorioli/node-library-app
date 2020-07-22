@@ -6,6 +6,8 @@ const routes = express.Router();
 
 routes.get('/books', BookController.index);
 
+routes.get('/book', BookController.search);
+
 routes.get('/book/:_id', BookController.show);
 
 routes.post('/book', BookController.store);

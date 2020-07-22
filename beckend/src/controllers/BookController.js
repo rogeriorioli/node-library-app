@@ -11,6 +11,16 @@ module.exports = {
         const book = await Library.findById(req.params._id);
         return res.json(book);
     },
+    async search(req, res) {
+        const { title } = req.body
+        let book = await Library.findOne({
+            title
+        });
+        if(!book) {
+            return res.json({'message' : 'livro não encontrado'})
+        }
+        return res.json(book);
+    },
 
     async store(req, res) {
         const { ISBN } = req.body
