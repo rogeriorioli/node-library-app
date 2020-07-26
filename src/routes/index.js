@@ -4,6 +4,8 @@ const BookController = require('../controllers/BookController')
 const routes = express.Router();
 
 
+routes.get('/', (req, res) =>  res.json({"/" : "nothing"}))
+
 routes.get('/books', BookController.index);
 
 routes.get('/book', BookController.search);
