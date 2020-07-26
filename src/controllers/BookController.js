@@ -42,7 +42,7 @@ module.exports = {
                 description : volumeInfo.volumeInfo.description,
                 ISBN : ISBN,
                 publishedDate : volumeInfo.volumeInfo.publishedDate,
-                thumbnail : volumeInfo.volumeInfo.imageLinks.thumbnail,
+                thumbnail : !volumeInfo.volumeInfo.imageLinks ? 'https://picsum.photos/200/300' : volumeInfo.volumeInfo.imageLinks.thumbnail,
                 title : volumeInfo.volumeInfo.title,
              })
             return res.json({
