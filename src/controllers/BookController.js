@@ -4,7 +4,7 @@ const Library = require('../models/Library');
 
 module.exports = {
     async index(req, res) {
-        const book = await Library.find()
+        const book = await Library.find().sort({_id: -1})
         return res.json(book);
     },
     async show(req, res) {
@@ -46,7 +46,8 @@ module.exports = {
                 title : volumeInfo.volumeInfo.title,
              })
             return res.json({
-                "message": "livro cadastrado com sucesso"
+                "message": "livro cadastrado com sucesso",
+                 book
             });
         }
         return res.json({
